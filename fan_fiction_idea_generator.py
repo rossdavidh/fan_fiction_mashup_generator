@@ -4,14 +4,14 @@ import csv
 import random
 from string import Template
 
-CHARACTERS = set(['Pinkie Pie','Nightmare Moon','Gilligan','The Terminator','Santa Claus','Tom Sawyer','James Bond','The Leprechaun','Dr. Who','Sherlock Holmes','Ethel the Aardvark','Buddha','Paul Bunyan','Popeye','Alice','Ada Lovelace','Old Yeller','Corky the Clown','Jesus Christ', 'Swamp Thing', 'Jughead','Zelena the Wicked Witch','Ace Ventura','Hermione Granger','Gollum', 'Scout Finch','Charles Darwin','Ishmael','Tom Joad','Keyser Soze','Jack Sparrow','Ellen Ripley','Amélie Poulain','Bruce Lee','Robin Hood','Lady Gaga','Steven Universe','Claudia Kincaid','Mrs. Piggle-wiggle','Mary Poppins','Star Butterfly','HAL 9000','Godzilla','He-Man','Tintin','Paddington Bear','The Six Million Dollar Man','Scheherazade','Snow White','Little Red Riding Hood','Baba Yaga','Tiamat','Babe the pig','Harriet Tubman','Nicola Tesla','Albert Einstein','Jane Goodall'])
+CHARACTERS = set(['Pinkie Pie','Nightmare Moon','Gilligan','The Terminator','Santa Claus','Tom Sawyer','James Bond','The Leprechaun','Dr. Who','Sherlock Holmes','Ethel the Aardvark','Paul Bunyan','Popeye','Alice','Ada Lovelace','Old Yeller','Corky the Clown', 'Swamp Thing', 'Jughead','Zelena the Wicked Witch','Ace Ventura','Hermione Granger','Gollum', 'Scout Finch','Charles Darwin','Ishmael','Tom Joad','Keyser Soze','Jack Sparrow','Ellen Ripley','Amélie Poulain','Bruce Lee','Robin Hood','Lady Gaga','Steven Universe','Claudia Kincaid','Mrs. Piggle-wiggle','Mary Poppins','Star Butterfly','HAL 9000','Godzilla','He-Man','Tintin','Paddington Bear','The Six Million Dollar Man','Scheherazade','Snow White','Little Red Riding Hood','Baba Yaga','Tiamat','Babe the pig','Harriet Tubman','Nicola Tesla','Albert Einstein','Jane Goodall','Aaron Burr','John Henry','Captain Nemo','Ibn Khaldun'])
 
-SERIES     = set(["My Little Pony","Gilligan's Island","Star Trek","Star Wars","Grimm's Fairy Tales","X-Files","The Jeffersons","Gremlins","the Olympian Pantheon","Cats","Twilight Zone","Arabian Nights","Friends","Golden Girls","Hogan's Heroes","the Simpsons","the Muppets","The Solid Gold Dancers","Knights of the Round Table","the League of Extraordinary Gentlemen","the Unseelie Court"])
+SERIES     = set(["My Little Pony","Gilligan's Island","Star Trek","Star Wars","Grimm's Fairy Tales","X-Files","The Jeffersons","Gremlins","the Olympian Pantheon","Cats","Twilight Zone","Arabian Nights","Friends","Golden Girls","Hogan's Heroes","the Simpsons","the Muppets","The Solid Gold Dancers","Knights of the Round Table","the League of Extraordinary Gentlemen","the Unseelie Court","the Founding Fathers"])
 
 
 MODIFIERS  = set([' as written by Ian Fleming',' as written by Jane Austen',' with a Greek chorus',' as a silent movie','',' as shadow puppet theater',' in Legos',' as Wagnerian opera', ' as written by William Shakespeare', ' as epic poetry', ' as written by William Burroughs', ' as kabuki theater',' a feminist retelling',' in ASCII art',' where they are secretly vampires', ' as written by Ayn Rand', ' a dadaist retelling', ' as alliterative verse', ' the rock opera', ' as written by Noam Chosmky',' a new Cartoon Network animated series',' as anthropomorphic rocks', ' as anthropomorphic cats', ' as written by Rod Sterling'," (this time, it's personal)",' as written by Dr. Seuss',' as written by Friedrich Nietzsche', ' as painted by Michaelangelo', ' as drawn by Edward Gorey', ' as sculpted by August Rodin', ' as drawn by Escher', ' as a Choose Your Own Adventure paperback', ' heckled by Mystery Science Theater 3000', ' as mockumentary',' as gameshow',' as a trapunto quilt pattern',' as modern dance',' the podcast',' the ballet', ' with audience participation ala Rocky Horror'])
 
-CHAR_MODIFIERS = set(['the ghost of ','mecha-','a holographic simulation of ','zombie ','an android replica of '])
+CHAR_MODIFIERS = set(['the ghost of ','mecha-','a holographic simulation of ','zombie ','an android replica of ','son of ','bride of '])
 
 #this hack is forced upon us because a set cannot contains dicts, as dicts are not hashable because they are mutable
 def pickGame():
@@ -79,7 +79,8 @@ SCENARIOS  = {'chriscarol'  :{'template':Template('$char1 and $series1 Christmas
               'monetize'    :{'template':Template('$char1 and $char2 monetize it')},
               'talking'     :{'template':Template('$char1 and $char2 Have a Talk about '),'rule':pickConversation},
               'fishing'     :{'template':Template('$char1 and $char2 go fishing, while talking about '),'rule':pickConversation},
-              'death'       :{'template':Template('$char1 saves $char2 by beating Death in a game of '),'rule':pickGame}}
+              'death'       :{'template':Template('$char1 saves $char2 by beating Death in a game of '),'rule':pickGame},
+              'coffeebook'  :{'template':Template('pictures of $series1 taken by $char1, as a coffeetable book')}}
 
 
 def already_used_today():
